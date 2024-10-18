@@ -1,0 +1,255 @@
+<div
+    class="relative h-[400px] bg-[url('https://images.unsplash.com/photo-1449844908441-8829872d2607?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw2fHxob21lfGVufDB8MHx8fDE3MTA0MDE1NDZ8MA&ixlib=rb-4.0.3&q=80&w=1080')] bg-cover bg-no-repeat bg-center flex flex-col">
+    <div class="absolute inset-0 bg-black bg-opacity-60">
+        <div class="flex flex-col gap-4 justify-center items-center w-full h-full px-3 md:px-0">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
+                Booking Mate
+            </h1>
+            <p class="text-gray-300">Now Available Now!</p>
+            
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <div class="relative">
+                    <div class="rounded-lg w-full">
+                        <mat-form-field class="rounded-lg w-full">
+                            <mat-label>Room</mat-label>
+                            <mat-select formControlName="selectRooms">
+                                @for (room of responseData.data; track room) {
+                                <mat-option [value]="room.room_number">{{
+                                    room.room_number
+                                    }}</mat-option>
+                                }
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="relative">
+                        <mat-form-field class="mr-2">
+                            <mat-label>Start time</mat-label>
+                            <mat-select formControlName="selectTimeStart">
+                                @for(time of times; track time) {
+                                <mat-option [value]="time.timeStart">{{
+                                    time.timeStart
+                                    }}</mat-option>
+                                }
+                            </mat-select>
+                        </mat-form-field>
+
+                        <mat-form-field class="mr-2">
+            <mat-label>End time</mat-label>
+            <mat-select formControlName="selectTimeEnd">
+              @for(time of times; track time) {
+              <mat-option [value]="time.timeEnd">{{ time.timeEnd }}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Enter a date range</mat-label>
+            <mat-date-range-input [rangePicker]="picker">
+              <input matStartDate placeholder="Start date" formControlName="pickerStart"/>
+              <input matEndDate placeholder="End date" formControlName="pickerEnd"/>
+            </mat-date-range-input>
+
+            <mat-datepicker-toggle
+            matIconSuffix
+            [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-date-range-picker #picker ></mat-date-range-picker>
+        </mat-form-field>
+                    </div>
+                    <button class="inline-flex items-center justify-center rounded-lg bg-booking py-3 px-6 font-dm text-base font-medium text-white shadow-xl transition-transform duration-200 ease-in-out hover:scale-[1] w-full"
+                        type="submit">
+                        Search
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="max-w-7xl mx-auto my-6 px-2">
+    <div class="flex flex-wrap items-center justify-between mb-8">
+        <h2 class="mr-10 text-4xl font-bold leading-none md:text-5xl">
+            Popular rooms
+        </h2>
+        <a href="#"
+            class="block pb-1 mt-2 text-base font-black text-booking uppercase border-b border-transparent hover:border-booking">
+            All rooms
+        </a>
+    </div>
+
+    <ul class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 p-2 xl:p-5">
+        <!-- Layout card #1 -->
+        <li class="relative bg-white flex flex-col justify-between border rounded shadow-md hover:shadow-teal-400">
+            <a class="relative" href="/tool/writey-ai">
+                <img class="rounded relative w-full object-cover aspect-video"
+                    src="https://images.unsplash.com/photo-1529236183275-4fdcf2bc987e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwxfHxrZXlib2FyZHxlbnwwfDB8fHwxNjk5NTI1MDAzfDA&ixlib=rb-4.0.3&q=80&w=1080"
+                    alt="Writey A.I" loading="lazy" />
+            </a>
+
+            <div class="flex flex-col justify-beetween gap-3 px-4 py-2">
+                <a href="/tool/writey-ai"
+                    class="flex justify-center items-center text-xl font-semibold text-teal-700 hover:text-teal-800 two-lines text-ellipsis">
+                    <span>Room 405</span>
+                    <br />
+                    <small class="font-medium text-sm">iMac room #1</small>
+                </a>
+
+                <p class="text-gray-600 two-lines">
+                    Writey A.I is an AI tool that generates original, researched blog
+                    posts in minutes, provides content optimization advice, and works
+                    with a plagiarism-free rule.
+                </p>
+
+                <ul class="flex flex-wrap items-center justify-start text-sm gap-2">
+                    <li title="Pricing type"
+                        class="flex items-center cursor-pointer gap-0.5 bg-gray-100 text-black px-2 py-0.5 rounded-full">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21.0006 9L3.00195 9.00008" stroke="black" stroke-width="1.6"
+                                stroke-linecap="round" class="my-path"></path>
+                            <path d="M21.0016 15L3 15.0004" stroke="black" stroke-width="1.6" stroke-linecap="round"
+                                class="my-path"></path>
+                            <path d="M10.002 3L8.00195 21" stroke="black" stroke-width="1.6" stroke-linecap="round"
+                                class="my-path"></path>
+                            <path d="M16.002 3L14.002 21" stroke="black" stroke-width="1.6" stroke-linecap="round"
+                                class="my-path"></path>
+                        </svg>
+                        <span>Study</span>
+                    </li>
+                    <li title="Pricing type"
+                        class="flex items-center cursor-pointer gap-0.5 bg-gray-100 text-black px-2 py-0.5 rounded-full">
+                        <span>Meeting</span>
+                    </li>
+                </ul>
+            </div>
+        </li>
+
+        <!-- Layout card #2 -->
+        <li class="relative bg-white flex flex-col justify-between border rounded shadow-md hover:shadow-teal-400">
+            <a class="relative" href="/tool/writey-ai">
+                <img class="rounded relative w-full object-cover aspect-video"
+                    src="https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw1fHxrZXlib2FyZHxlbnwwfDB8fHwxNjk5NTI1MDAzfDA&ixlib=rb-4.0.3&q=80&w=1080"
+                    alt="Writey A.I" loading="lazy" />
+            </a>
+
+            <div class="flex flex-col justify-beetween gap-3 px-4 py-2">
+                <a href="/tool/writey-ai"
+                    class="flex justify-center items-center text-xl font-semibold text-teal-700 hover:text-teal-800 two-lines text-ellipsis">
+                    <span>Room 405</span>
+                    <br />
+                    <small class="font-medium text-sm">iMac room #2</small>
+                </a>
+
+                <p class="text-gray-600 two-lines">
+                    Writey A.I is an AI tool that generates original, researched blog
+                    posts in minutes, provides content optimization advice, and works
+                    with a plagiarism-free rule.
+                </p>
+
+                <ul class="flex flex-wrap items-center justify-start text-sm gap-2">
+                    <li title="Pricing type"
+                        class="flex items-center cursor-pointer gap-0.5 bg-gray-100 text-black px-2 py-0.5 rounded-full">
+                        <span>Study</span>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <!-- Layout card #3  -->
+        <li class="relative bg-white flex flex-col justify-between border rounded shadow-md hover:shadow-teal-400">
+            <a class="relative" href="/tool/writey-ai">
+                <img class="rounded relative w-full object-cover aspect-video"
+                    src="https://images.unsplash.com/photo-1515378960530-7c0da6231fb1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw3fHxrZXlib2FyZHxlbnwwfDB8fHwxNjk5NTI1MDAzfDA&ixlib=rb-4.0.3&q=80&w=1080"
+                    alt="Writey A.I" loading="lazy" />
+            </a>
+
+            <div class="flex flex-col justify-beetween gap-3 px-4 py-2">
+                <a href="/tool/writey-ai"
+                    class="flex justify-center items-center text-xl font-semibold text-teal-700 hover:text-teal-800 two-lines text-ellipsis">
+                    <span>Room 407</span>
+                    <br />
+                    <small class="font-medium text-sm">AI & IOT</small>
+                </a>
+
+                <p class="text-gray-600 two-lines">
+                    Writey A.I is an AI tool that generates original, researched blog
+                    posts in minutes, provides content optimization advice, and works
+                    with a plagiarism-free rule.
+                </p>
+
+                <ul class="flex flex-wrap items-center justify-start text-sm gap-2">
+                    <li title="Pricing type"
+                        class="flex items-center cursor-pointer gap-0.5 bg-gray-100 text-black px-2 py-0.5 rounded-full">
+                        <span>Study</span>
+                    </li>
+                    <li title="Pricing type"
+                        class="flex items-center cursor-pointer gap-0.5 bg-gray-100 text-black px-2 py-0.5 rounded-full">
+                        <span>Activity</span>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <!-- Layout card #4 -->
+        <li class="relative bg-white flex flex-col justify-between border rounded shadow-md hover:shadow-teal-400">
+            <a class="relative" href="/tool/writey-ai">
+                <img class="rounded relative w-full object-cover aspect-video"
+                    src="https://images.unsplash.com/photo-1555532538-dcdbd01d373d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw0fHxrZXlib2FyZHxlbnwwfDB8fHwxNjk5NTI1MDAzfDA&ixlib=rb-4.0.3&q=80&w=1080"
+                    alt="Writey A.I" loading="lazy" />
+            </a>
+
+            <div class="flex flex-col justify-beetween gap-3 px-4 py-2">
+                <a href="/tool/writey-ai"
+                    class="flex justify-center items-center text-xl font-semibold text-teal-700 hover:text-teal-800 two-lines text-ellipsis">
+                    <span>Room 408</span>
+                    <br />
+                    <small class="font-medium text-sm">Server</small>
+                </a>
+
+                <p class="text-gray-600 two-lines">
+                    Writey A.I is an AI tool that generates original, researched blog
+                    posts in minutes, provides content optimization advice, and works
+                    with a plagiarism-free rule.
+                </p>
+
+                <ul class="flex flex-wrap items-center justify-start text-sm gap-2">
+                    <li title="Pricing type"
+                        class="flex items-center cursor-pointer gap-0.5 bg-gray-100 text-black px-2 py-0.5 rounded-full">
+                        <span>Study</span>
+                    </li>
+                    <li title="Pricing type"
+                        class="flex items-center cursor-pointer gap-0.5 bg-gray-100 text-black px-2 py-0.5 rounded-full">
+                        <span>Seminar</span>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <!-- Layout card #5 -->
+        <li class="relative bg-white flex flex-col justify-between border rounded shadow-md hover:shadow-teal-400">
+            <a class="relative" href="/tool/writey-ai">
+                <img class="rounded relative w-full object-cover aspect-video"
+                    src="https://images.unsplash.com/photo-1574192324001-ee41e18ed679?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwxNXx8a2V5Ym9hcmR8ZW58MHwwfHx8MTY5OTUyNTAwM3ww&ixlib=rb-4.0.3&q=80&w=1080"
+                    alt="Writey A.I" loading="lazy" />
+            </a>
+
+            <div class="flex flex-col justify-beetween gap-3 px-4 py-2">
+                <a href="/tool/writey-ai"
+                    class="flex justify-center items-center text-xl font-semibold text-teal-700 hover:text-teal-800 two-lines text-ellipsis">
+                    <span>Room 403</span>
+                    <br />
+                    <small class="font-medium text-sm">Study room</small>
+                </a>
+
+                <p class="text-gray-600 two-lines">
+                    Writey A.I is an AI tool that generates original, researched blog
+                    posts in minutes, provides content optimization advice, and works
+                    with a plagiarism-free rule.
+                </p>
+
+                <ul class="flex flex-wrap items-center justify-start text-sm gap-2">
+                    <li title="Pricing type"
+                        class="flex items-center cursor-pointer gap-0.5 bg-gray-100 text-black px-2 py-0.5 rounded-full">
+                        <span>Study</span>
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+</div>

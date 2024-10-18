@@ -11,5 +11,11 @@
   "include": [
     "src/**/*.spec.ts",
     "src/**/*.d.ts"
+  ],
+  "angularCompilerOptions": {
+    "strictTemplates": true
+  },
+  "plugins": [
+    {"name": "@angular/language-service"}
   ]
 }
